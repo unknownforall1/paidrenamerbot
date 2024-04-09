@@ -78,4 +78,4 @@ class Database:
         user = await self.col.find_one({'id': int(id)})
         return user.get('upload_mode', None)
     
-db = Database(Config.DATABASE_URI, "md-Rename-Bot")
+db = Database(DATABASE_URI, "md-Rename-Bot")
