@@ -1,3 +1,4 @@
+
 import logging
 import logging.config
 
@@ -8,31 +9,51 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 import os
 from config import Config
 from pyrogram import Client
-from plugins.database import db 
+
+import logging
+import logging.config
+from pyrogram import Client 
+
+logging.config.fileConfig('logging.conf')
+logging.getLogger().setLevel(logging.INFO)
+logging.getLogger("pyrogram").setLevel(logging.ERROR)
+
 
 class Bot(Client):
-   
-   def __init__(self):
-       super().__init__(
-            name="md-rename-bot",
+
+    def __init__(self):
+        super().__init__(
+            name="WebX-Renamer",
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.BOT_TOKEN,
+            workers=50,
             plugins={"root": "plugins"},
+            sleep_threshold=5,
         )
-      
-   async def start(self):
-      await super().start()
-      self.log = logging
-      if not os.path.isdir(Config.DOWNLOAD_LOCATION):
-        os.makedirs(Config.DOWNLOAD_LOCATION)
-      banned_users = await db.get_banned_users()
-      Config.BANNED_USERS = banned_users
-      logging.info(f"{self.me.first_name} is Successfully started")
-   
-   async def stop(self):
-      await super().stop()
-      logging.info(f"{self.me.first_name} is stopped...")
 
+    async def start(self):
+       await super().start()
+       me = await self.get_me()
+       self.mention = me.mention
+       self.username = me.username 
+       self.force_channel = FORCE_SUB
+       if FORCE_SUB:
+         try:
+            link = await self.export_chat_invite_link(FORCE_SUB)                  
+            self.invitelink = link
+            if not os.path.isdir(Config.DOWNLOAD_LOCATION):
+              os.makedirs(Config.DOWNLOAD_LOCATION)
+         except Exception as e:
+            logging.warning(e)
+            logging.warning("Make Sure Bot admin in force sub channel")             
+            self.force_channel = None
+       logging.info(f"{me.first_name} {me.username} ✅✅ BOT started successfully ✅✅")
+      
+
+    async def stop(self, *args):
+      await super().stop()      
+      logging.info("Bot Stopped 🙄")
+        
 bot = Bot()
 bot.run()
