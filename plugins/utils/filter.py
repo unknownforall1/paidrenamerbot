@@ -1,10 +1,10 @@
-from config import Config 
+from config import AUTH_CHANNEL, BANNED_USERS
 from pyrogram.types import Message 
 from pyrogram import filters, enums 
 from pyrogram.errors import UserNotParticipant
  
 async def is_subscribed(_, bot, message: Message):
-    channel = Config.AUTH_CHANNEL
+    channel = AUTH_CHANNEL
     if not channel:
        return False
     try:
@@ -22,6 +22,6 @@ async def is_subscribed(_, bot, message: Message):
 is_not_subscribed = filters.create(is_subscribed)
          
 async def is_banned(_, __, message: Message):
-    return message.from_user.id in Config.BANNED_USERS 
+    return message.from_user.id in BANNED_USERS 
   
 is_banned_user = filters.create(is_banned)
