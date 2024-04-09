@@ -1,6 +1,6 @@
 import datetime
 import motor.motor_asyncio
-from config import Config
+from config import DB_URL as DATABASE_URI, DB_NAME
 
 
 class Database:
