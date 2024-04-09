@@ -32,6 +32,8 @@ class Bot(Client):
        me = await self.get_me()
        self.mention = me.mention
        self.username = me.username 
+       if not os.path.isdir(Config.DOWNLOAD_LOCATION):
+         os.makedirs(Config.DOWNLOAD_LOCATION)
        self.force_channel = FORCE_SUB
        if FORCE_SUB:
          try:
