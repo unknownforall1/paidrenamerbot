@@ -1,11 +1,11 @@
 # Don't Remove Credit @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
-
+import os
 import logging
 import logging.config
 from pyrogram import Client 
-from config import API_ID, API_HASH, BOT_TOKEN, FORCE_SUB, PORT
+from config import API_ID, API_HASH, BOT_TOKEN, FORCE_SUB, PORT, DOWNLOAD_LOCATION
 from aiohttp import web
 from plugins.web_support import web_server
 
@@ -32,8 +32,8 @@ class Bot(Client):
        me = await self.get_me()
        self.mention = me.mention
        self.username = me.username 
-       if not os.path.isdir(Config.DOWNLOAD_LOCATION):
-         os.makedirs(Config.DOWNLOAD_LOCATION)
+       if not os.path.isdir(DOWNLOAD_LOCATION):
+         os.makedirs(DOWNLOAD_LOCATION)
        self.force_channel = FORCE_SUB
        if FORCE_SUB:
          try:
