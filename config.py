@@ -31,6 +31,12 @@ ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.envir
 
 PORT = os.environ.get("PORT", "8080")
 
+OWNER_ID = int(os.environ.get("OWNER_ID", 6521935712))
+
+BANNED_USERS = []
+
+DOWNLOAD_LOCATION = "./DOWNLOADS" 
+
 # Don't Remove Credit @VJ_Botz
 # Subscribe YouTube Channel For Amazing Bot @Tech_VJ
 # Ask Doubt on telegram @KingVJ01
