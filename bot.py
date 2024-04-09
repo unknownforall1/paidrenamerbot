@@ -9,7 +9,7 @@ logging.getLogger("pyrogram").setLevel(logging.ERROR)
 import os
 from config import Config
 from pyrogram import Client
-
+from config import API_ID, API_HASH, BOT_TOKEN, FORCE_SUB, DOWNLOAD_LOCATION
 import logging
 import logging.config
 from pyrogram import Client 
