@@ -1,7 +1,7 @@
 import os
 import time
 from .database import db 
-from config import Config
+from config import FORCE_SUB as AUTH_CHANNEL, BANNED_USERS, ADMIN
 from translation import Translation
 from .utils import __version__ as bot_version
 from pyrogram import Client, filters, enums, __version__
@@ -43,7 +43,7 @@ async def settings(bot, message):
          text=Translation.SETTINGS_TXT,
          reply_markup=InlineKeyboardMarkup(button))
 
-@Client.on_message(filters.command('stats') & filters.user(Config.OWNER_ID))
+@Client.on_message(filters.command('stats') & filters.user(ADMIN))
 async def stats(bot, message):
     user_id = message.from_user.id
     msg = await message.reply_text("Fetching...")
@@ -99,7 +99,7 @@ async def cb_handler(client: Client , query: CallbackQuery):
             disable_web_page_preview = True,
             reply_markup=InlineKeyboardMarkup(
             [[
-              InlineKeyboardButton('📃 Source code', url='https://github.com/Greymattersbot/md-renamebot')
+              InlineKeyboardButton('📃 Source code', url='https://t.me/siddhant_devil')
             ],[
               InlineKeyboardButton('Back', callback_data = "help"),
             ]]
