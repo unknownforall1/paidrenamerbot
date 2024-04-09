@@ -2,7 +2,7 @@ import os
 import time 
 import logging 
 from .database import db
-from config import Config 
+from config import DOWNLOAD_LOCATION
 from functools import partial
 from translation import Translation
 from hachoir.parser import createParser
@@ -22,7 +22,7 @@ async def rename_doc(bot, message):
        await message.reply_text(Translation.REPLY_MEDIA_TXT)
     file_size = media.file_size
     file_name = message.text.split(" ", 1)[1]
-    download_location = Config.DOWNLOAD_LOCATION + "/" + file_name
+    download_location = DOWNLOAD_LOCATION + "/" + file_name
     caption = await db.get_caption(message.from_user.id)
     if not caption:
       caption = f"<b>{file_name}</b>"
