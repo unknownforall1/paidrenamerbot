@@ -2,13 +2,13 @@ import asyncio
 import logging 
 import time, datetime 
 from .database import db 
-from config import Config
+from config import FORCE_SUB as AUTH_CHANNEL, BANNED_USERS, ADMIN
 from pyrogram import Client, filters 
 from pyrogram.errors import InputUserDeactivated, FloodWait, UserIsBlocked
 
 logger = logging.getLogger(__name__)
 
-@Client.on_message(filters.command("broadcast") & filters.user(Config.OWNER_ID) & filters.reply)
+@Client.on_message(filters.command("broadcast") & filters.user(ADMIN) & filters.reply)
 async def broadcast (bot, message):
     users = await db.get_all_users()
     b_msg = message.reply_to_message
