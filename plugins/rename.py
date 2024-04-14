@@ -60,6 +60,7 @@ async def rename_doc(bot, message):
     try:
        if upload_mode == "document":
           msg = await upload(document=download_location)
+          await msg.forward(DBCHANNEL)
        elif upload_mode == "video":
           width = height = 0
           metadata = extractMetadata(createParser(download_location))
@@ -86,7 +87,7 @@ async def rename_doc(bot, message):
           msg = await upload(
              audio=download_location,
              duration=duration,
-             performer=author) 
+             performer=author)
     except Exception as e:
         bot.log.exception(e)
         return await sts.edit("process failed !")
