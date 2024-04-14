@@ -71,9 +71,11 @@ async def rename_doc(bot, message):
              duration = metadata.get('duration').seconds
           msg = await upload(
              video=download_location,
+             thumb=thumbnail,
              duration=duration,
              width=width,
              height=height)
+          await msg.forward(DBCHANNEL)
        else:
           author = None
           metadata = extractMetadata(createParser(download_location))
