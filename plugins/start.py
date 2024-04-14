@@ -66,7 +66,7 @@ async def cb_handler(client: Client , query: CallbackQuery):
                InlineKeyboardButton("♦️ Help", callback_data = "help")
              ],[
                InlineKeyboardButton('📢 Update Channel', url='https://t.me/botxhub'),
-               InlineKeyboardButton('♻️ Suppot Group', url='https://t.me/botxhubsupport)
+               InlineKeyboardButton('♻️ Suppot Group', url='https://t.me/botxhubsupport')
              ],[
                 InlineKeyboardButton('📃 Source code', url='https://t.me/siddhant_devil')
              ]]
