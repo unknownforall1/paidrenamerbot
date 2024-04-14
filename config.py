@@ -23,11 +23,10 @@ DB_NAME = os.environ.get("DB_NAME", "renamebotXhub")
 
 
 LOGCHANNEL= os.environ.get("LOGCHANNEL", "-1001398318938")
-DBCHANNEL = os.environ.get("DBCHANNEL", "")
+DBCHANNEL = os.environ.get("DBCHANNEL", "-1002087175886")
 DB_URL = os.environ.get("DB_URL", "mongodb+srv://vivekrajroy705:NL3uH0IX2skZqO5R@cluster0.2bscxuc.mongodb.net/?retryWrites=true&w=majority")
  
 FLOOD = int(os.environ.get("FLOOD", "10"))
-
 START_PIC = os.environ.get("START_PIC", "https://graph.org/file/2179a9464d47f291f62b3.jpg")
 
 ADMIN = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '6521935712 989095888').split()]
