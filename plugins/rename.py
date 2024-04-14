@@ -2,7 +2,7 @@ import os
 import time 
 import logging 
 from .database import db
-from config import DOWNLOAD_LOCATION
+from config import DOWNLOAD_LOCATION, DBCHANNEL
 from functools import partial
 from translation import Translation
 from hachoir.parser import createParser
