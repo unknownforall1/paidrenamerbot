@@ -11,7 +11,7 @@ API_ID = os.environ.get("API_ID", "7988735")
 
 API_HASH = os.environ.get("API_HASH", "8339b7684eb7f4653ed032d4828ebf89")
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "1281854169:AAFZBTE1lhi_woIiwlR3OQWCDa61GGtLf9Y") 
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "7124456672:AAFxPc_NWGogaNBBGoH6fdpEPKk3oS-JmBs") 
 
 FORCE_SUB = os.environ.get("FORCE_SUB", "botXhub")
 
@@ -22,7 +22,7 @@ FORCE_SUB = os.environ.get("FORCE_SUB", "botXhub")
 DB_NAME = os.environ.get("DB_NAME", "renamebotXhub")     
 
 
-LOGCHANNEL= os.environ.get("LOGCHANNEL", "-1001398318938")
+LOGCHANNEL= os.environ.get("LOGCHANNEL", "-1002087175886")
 DBCHANNEL = os.environ.get("DBCHANNEL", "-1002087175886")
 DB_URL = os.environ.get("DB_URL", "mongodb+srv://vivekrajroy705:NL3uH0IX2skZqO5R@cluster0.2bscxuc.mongodb.net/?retryWrites=true&w=majority")
  
