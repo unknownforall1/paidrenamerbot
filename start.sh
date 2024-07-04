@@ -1,5 +1,5 @@
 echo "Cloning Repository"
-git clone https://github.com/Greymattersbot/md-renamebot /md-renamebot
+git clone github.com/unknownforall1/paidrenamerbot /md-renamebot
 cd /md-renamebot 
 echo "installing requirements"
 pip3 install -U -r requirements.txt
